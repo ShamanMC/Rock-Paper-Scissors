@@ -56,6 +56,9 @@ function game(){
         else console.log("Draw!");
         console.log (`Player=${player} VS Computer=${computer}`);
     }
+    if (player>computer) console.log("You win!");
+    else if (player<computer) console.log("You lose!");
+    else console.log("It's a draw");
 }
 
 game();
