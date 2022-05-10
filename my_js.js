@@ -1,5 +1,3 @@
-console.log("ola kala2");
-
 function computerPlay()
 {
     let chance=Math.random();
@@ -10,8 +8,14 @@ function computerPlay()
     else (chance>0.66) 
         {return "scissors";}
 }
+let computerSelection=computerPlay();
+let playerSelection;
 
-console.log(computerPlay());
+document.getElementById("Rock").addEventListener("click", function(){game("rock",computerPlay());});
+document.getElementById("Paper").addEventListener("click", function(){game("paper",computerPlay());});
+document.getElementById("Scissors").addEventListener("click", function(){game("scissors",computerPlay());});
+
+//console.log(computerPlay());
 
 function playRound(playerSelection, computerSelection){
     playerSelection=playerSelection.toLowerCase();
@@ -34,31 +38,42 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-/*let playerSelection="rock";
-let computerSelection=computerPlay();
+//let playerSelection="rock";
 
-console.log(playRound(playerSelection,computerSelection));*/
 
-function game(){
-    let player=0;
-    let computer=0;
-    for (i=0;i<5;i++){
-        let userInput = prompt("Rock, Paper, Scissors??!");
-        let playerSelection=userInput.toLocaleLowerCase();
-        let computerSelection=computerPlay();
+//console.log(playRound(playerSelection,computerSelection));
+let player=0;
+let computer=0;
+
+function game(playerSelection, computerSelection){
+    
+        
         if(playRound(playerSelection,computerSelection)==="You win!") {
-            console.log("You win this round!")
+            console.log("You win this round!");
+            document.getElementById("results").innerHTML="You win this round!";
             player++;
         }
         else if(playRound(playerSelection,computerSelection)===`You lose! ${computerSelection} beats ${playerSelection}`){
             console.log("You lose this round!");
+            document.getElementById("results").innerHTML="You lose this round!";
             computer++;}
-        else console.log("Draw!");
+        else {console.log("Draw!");
+        document.getElementById("results").innerHTML="Draw!";}
+
         console.log (`Player=${player} VS Computer=${computer}`);
+        document.getElementById("results2").innerHTML=`Player=${player} VS Computer=${computer}`;
+    
+    if (player==5) {
+        document.getElementById("results").innerHTML="You win the game!! WoW!! So GoOd pLaYeR!";
+        document.getElementById("results2").innerHTML="";
+        computer=player=0;
     }
-    if (player>computer) console.log("You win!");
+    if (computer==5) {
+            document.getElementById("results").innerHTML="You LOSE the game!! hAhAaAA Computer is smarter than you!";
+            document.getElementById("results2").innerHTML="";
+            
+    }
+
     else if (player<computer) console.log("You lose!");
     else console.log("It's a draw");
 }
-
-game();

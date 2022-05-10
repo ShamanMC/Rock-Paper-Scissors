@@ -1,0 +1,28 @@
+body{
+    background-color: darkolivegreen;
+    color: yellowgreen;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.texts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.all{
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+
+h1, h2{
+    display:flex;
+    justify-content: center;
+}
